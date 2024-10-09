@@ -1,5 +1,3 @@
-libopencv-dev
-libopencv-python
 python3-opencv
 build-essential
 python3-pip
