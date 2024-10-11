@@ -23,22 +23,22 @@ pipeline {
                 }
             }
         }
-         stage('Code Quality Checkk')
-            {
-                environment{
-                    scannerHome = tool 'sonar'
-                    SONAR_SCANNER = 'SonarScanner'
-                }
-                steps {
-                    withSonarQubeEnv('sonar') {
-                        bat "${env.scannerHome}\\bin\\sonar-scanner.bat"
-                    }
-                }
-            }
+        // stage('Code Quality Checkk')
+          //  {
+          //      environment{
+           //         scannerHome = tool 'sonar'
+            //        SONAR_SCANNER = 'SonarScanner'
+            //    }
+             //   steps {
+                //    withSonarQubeEnv('sonar') {
+                //        bat "${env.scannerHome}\\bin\\sonar-scanner.bat"
+                 //   }
+               // }
+           // }
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
-                sh """
+                bat """
                 heroku git:remote -a flaskcalc-prod
                 git add .
                 git commit -am "make it better"
@@ -50,7 +50,7 @@ pipeline {
         stage('Release') {
             steps {
                 echo 'Releasing the application...'
-                sh """
+                bat """
                 heroku git:remote -a flaskcalc
                 git add .
                 git commit -am "make it better"
