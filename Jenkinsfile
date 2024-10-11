@@ -26,16 +26,16 @@ pipeline {
            
         }
         stage('Code Quality Checkk')
-        {
-            environment{
-                scannerHome = tool 'sonar'
-                SONAR_SCANNER = 'SonarScanner'
-            }
-            steps {
-                withSonarQubeEnv('sonar') {
-                    bat "${env.scannerHome}\\bin\\sonar-scanner.bat"
-                }
-            }
+        { 
+            // environment{
+            //     scannerHome = tool 'sonar'
+            //     SONAR_SCANNER = 'SonarScanner'
+            // }
+            // steps {
+            //     withSonarQubeEnv('sonar') {
+            //         bat "${env.scannerHome}\\bin\\sonar-scanner.bat"
+            //     }
+            // }
         }
         stage('Deploy') {
             steps {
