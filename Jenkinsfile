@@ -25,8 +25,11 @@ pipeline {
             }
            
         }
-        stage('Code Quality Checkk')
+        stage('Code Quality Check')
         { 
+            steps {
+                echo "Code Quality Check"
+            }
             // environment{
             //     scannerHome = tool 'sonar'
             //     SONAR_SCANNER = 'SonarScanner'
