@@ -19,7 +19,7 @@ pipeline {
                 script {
                     echo 'Testing the Python Test File'
                     // Run pytest inside the Docker container for test_helpers.py
-                    bat 'docker run --rm jimmythinh1404/blur-detect python -m pytest test_helpers.py --junitxml=results.xml'
+                    bat 'docker run --rm jimmythinh1404/blur-detect python -m unittest discover -s . -p "test_*.py"'
                 }
             }
         }
