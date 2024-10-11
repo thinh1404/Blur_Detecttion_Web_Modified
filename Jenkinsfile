@@ -38,27 +38,24 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
-                // Here you would add your deployment commands
-                // This might include copying files to a server or starting a service
-                // Example:
-                // sh 'scp -r ./* user@yourserver:/path/to/deploy/'
-                
+                sh """
+                heroku git:remote -a flaskcalc
+                git add .
+                git commit -am "make it better"
+                git push heroku main --force
+                """
             }
         }
 
         stage('Release') {
             steps {
                 echo 'Releasing the application...'
-                // You can add steps to notify users or finalize the release here
-                // For example:
-                // sh 'echo "Application released!"'
-                // Or you might trigger a notification to a chat system, etc.
-                // Stop the existing production container if it exists
-                // bat 'docker stop blur-detect-prod || echo "No existing production container to stop."'
-                // bat 'docker rm blur-detect-prod || echo "No existing production container to remove."'
-
-                // Deploy the application to the production environment
-                
+                sh """
+                heroku git:remote -a flaskcalc
+                git add .
+                git commit -am "make it better"
+                git push heroku main --force
+                """
             }
         }
     }
