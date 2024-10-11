@@ -45,7 +45,7 @@ pipeline {
                 // This might include copying files to a server or starting a service
                 // Example:
                 // sh 'scp -r ./* user@yourserver:/path/to/deploy/'
-                bat 'docker run -d --name blur-detect-test -p 5001:5000 jimmythinh1404/blur-detect'
+                
             }
         }
 
@@ -61,7 +61,7 @@ pipeline {
                 // bat 'docker rm blur-detect-prod || echo "No existing production container to remove."'
 
                 // Deploy the application to the production environment
-                bat 'docker run -d --name blur-detect-prod -p 80:5000 jimmythinh1404/blur-detect'
+                
             }
         }
     }
