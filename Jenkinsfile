@@ -1,6 +1,8 @@
 pipeline {
     agent any 
-
+    environment {
+        HEROKU_API_KEY = credentials('heroku-api-key')  // Your Heroku API key
+    }
     stages {
         stage('Build') {
             steps {
