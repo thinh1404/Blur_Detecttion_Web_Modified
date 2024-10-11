@@ -57,8 +57,8 @@ pipeline {
                 // sh 'echo "Application released!"'
                 // Or you might trigger a notification to a chat system, etc.
                 // Stop the existing production container if it exists
-                bat 'docker stop blur-detect-prod || echo "No existing production container to stop."'
-                bat 'docker rm blur-detect-prod || echo "No existing production container to remove."'
+                // bat 'docker stop blur-detect-prod || echo "No existing production container to stop."'
+                // bat 'docker rm blur-detect-prod || echo "No existing production container to remove."'
 
                 // Deploy the application to the production environment
                 bat 'docker run -d --name blur-detect-prod -p 80:5000 jimmythinh1404/blur-detect'
