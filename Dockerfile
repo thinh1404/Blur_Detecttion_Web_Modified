@@ -1,6 +1,12 @@
 # Use the official Python image from the Docker Hub
 FROM python:3.9-slim
 
+# Install necessary system dependencies for OpenCV
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgl1 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
 # Set the working directory inside the container
 WORKDIR /app
 
