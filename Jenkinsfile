@@ -23,21 +23,18 @@ pipeline {
                 }
             }
         }
-        stage('Code Quality Check')
-        { 
-            steps {
-                echo "Code Quality Check"
+         stage('Code Quality Checkk')
+            {
+                environment{
+                    scannerHome = tool 'sonar'
+                    SONAR_SCANNER = 'SonarScanner'
+                }
+                steps {
+                    withSonarQubeEnv('sonar') {
+                        bat "${env.scannerHome}\\bin\\sonar-scanner.bat"
+                    }
+                }
             }
-             environment{
-                 scannerHome = tool 'sonar'
-                 SONAR_SCANNER = 'SonarScanner'
-             }
-             steps {
-                 withSonarQubeEnv('sonar') {
-                     bat "${env.scannerHome}\\bin\\sonar-scanner.bat"
-                 }
-             }
-        }
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
