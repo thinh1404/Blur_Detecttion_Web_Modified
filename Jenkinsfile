@@ -41,8 +41,8 @@ pipeline {
             steps {
                 echo 'Deploying the application...'
                 bat """
-                heroku git:remote -a flaskcalc-prod
-                git add .
+                heroku git:remote -a flaskcalc
+                git add . || exit 1
                 git commit -am "make it better"
                 git push heroku main --force
                 """
@@ -53,7 +53,7 @@ pipeline {
             steps {
                 echo 'Releasing the application...'
                 bat """
-                heroku git:remote -a flaskcalc
+                heroku git:remote -a flaskcalc-prod
                 git add .
                 git commit -am "make it better"
                 git push heroku main --force
