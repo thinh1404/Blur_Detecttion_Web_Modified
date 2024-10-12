@@ -44,8 +44,11 @@ pipeline {
                     bat """
                     echo 'Setting Heroku remote...'
                     heroku git:remote -a flaskcalc || exit 1
+                    """
+                    bat ""
                     echo 'Adding changes to Git...'
                     git add . || exit 1
+                    ""
                     echo 'Committing changes...'
                     git commit -am "make it better" || exit 1
                     echo 'Pushing to Heroku...'
