@@ -41,19 +41,11 @@ pipeline {
             steps {
                 echo 'Deploying the application...'
                 script{
-                    bat """
-                    echo 'Setting Heroku remote...'
-                    heroku git:remote -a flaskcalc || exit 1
-                    """
-                    bat ""
-                    echo 'Adding changes to Git...'
-                    git add . || exit 1
-                    ""
-                    echo 'Committing changes...'
-                    git commit -am "make it better" || exit 1
-                    echo 'Pushing to Heroku...'
-                    git push heroku main --force || exit 1
-                    """
+                bat 'git status'
+                bat 'heroku git:remote -a flaskcalc'
+                bat 'git add . || exit 1'
+                bat 'git commit -am "make it better" || exit 1'
+                bat 'git push heroku main --force || exit 1'
                 }
             }
         }
