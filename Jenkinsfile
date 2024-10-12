@@ -37,12 +37,18 @@ pipeline {
                  //   }
                // }
            // }
-        stage('Deploy') {
+           stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
                 bat """
-                heroku git:remote -a flaskcalc
-                git push heroku main --force
+                echo 'Setting Heroku remote...'
+                heroku git:remote -a flaskcalc || exit 1
+                echo 'Adding changes to Git...'
+                git add . || exit 1
+                echo 'Committing changes...'
+                git commit -am "make it better" || exit 1
+                echo 'Pushing to Heroku...'
+                git push heroku main --force || exit 1
                 """
             }
         }
