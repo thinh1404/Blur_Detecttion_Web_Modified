@@ -8,7 +8,6 @@ pipeline {
         steps {
             script {
                 bat 'git config --global user.email "thinhtruongkhangnguyen1404@gmail.com"'
-                bat 'git config --global user.name "Truong Khang Thinh Nguyen"'
                 }
             }
         }
