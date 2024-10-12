@@ -51,9 +51,9 @@ pipeline {
                 script{
                 bat 'git status'
                 bat 'heroku git:remote -a flaskcalc'
-                bat 'git add . || exit 1'
-                bat 'git commit -am "make it better" || exit 1'
-                bat 'git push heroku main --force || exit 1'
+                bat 'git add .'
+                bat 'git commit -am "make it better"'
+                bat 'git push heroku main --force'
                 }
             }
         }
