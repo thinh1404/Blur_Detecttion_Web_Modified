@@ -4,6 +4,14 @@ pipeline {
         HEROKU_API_KEY = credentials('heroku-api-key')  // Your Heroku API key
     }
     stages {
+        stage('Initial'){
+        steps {
+            script {
+                bat 'git config --global user.email "thinhtruongkhangnguyen1404@gmail.com"'
+                bat 'git config --global user.name "Truong Khang Thinh Nguyen"'
+                }
+            }
+        }
         stage('Build') {
             steps {
                 script {
