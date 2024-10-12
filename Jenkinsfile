@@ -53,7 +53,7 @@ pipeline {
                 bat 'heroku git:remote -a flaskcalc'
                 bat 'git add .'
                // bat 'git commit -am "make it better"'
-                bat 'git push heroku main --force'
+                bat 'git push heroku master --force'
                 }
             }
         }
